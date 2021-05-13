@@ -1,0 +1,25 @@
+Environment: Local Machines (macOS, Windows or Linux)
+Cloud Environment: Vultr, Digital Ocean (Docker container compatible)
+
+Demostrated in Vultr as deployed Docker Container Instance
+
+docker pull kalilinux/kali-bleeding-edge
+docker run -t -d --name my-kali -p 25900:5900 -p 25901:5901 kalilinux/kali-bleeding-edge
+docker exec -it my-kali /bin/bash
+apt update
+apt upgrade
+
+https://www.kali.org/blog/major-metapackage-makeover/
+
+apt install kali-desktop-xfce
+apt install tightvncserver
+vncpasswd
+export USER=root
+tightvncserver :0 -geometry 1280x800 -depth 16 -pixelformat rgb565
+
+apt install net-tools
+apt install novnc
+
+/usr/share/novnc/utils/launch.sh --listen 5901 --vnc localhost:5900
+
+http://127.0.0.1:25901/vnc.html password from previous vncpasswd
